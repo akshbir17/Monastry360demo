@@ -12,6 +12,7 @@ import {
   Clock,
   Star
 } from "lucide-react";
+import gpsNavigationImage from "@/assets/gps-navigation.jpg";
 
 const InteractiveMap = () => {
   const monasteries = [
@@ -107,14 +108,19 @@ const InteractiveMap = () => {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  {/* Placeholder for interactive map */}
-                  <div className="aspect-video bg-[var(--gradient-hero)] rounded-lg flex items-center justify-center relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-heritage-blue/20 to-primary/20" />
-                    <div className="text-center text-foreground">
-                      <MapPin className="w-12 h-12 mx-auto mb-4 text-primary" />
-                      <h3 className="text-xl font-semibold mb-2">Interactive Map Loading...</h3>
-                      <p className="text-muted-foreground">
-                        Explore 200+ monasteries across Sikkim
+                  {/* Interactive map with GPS navigation */}
+                  <div className="aspect-video rounded-lg relative overflow-hidden">
+                    <img 
+                      src={gpsNavigationImage} 
+                      alt="Interactive Heritage Map with GPS Navigation"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+                    <div className="absolute bottom-4 left-4 text-foreground">
+                      <MapPin className="w-8 h-8 mb-2 text-primary" />
+                      <h3 className="text-lg font-semibold mb-1">Interactive Heritage Map</h3>
+                      <p className="text-sm text-muted-foreground">
+                        GPS-enabled navigation to 200+ monasteries
                       </p>
                     </div>
                   </div>

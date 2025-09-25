@@ -11,6 +11,7 @@ import {
   CalendarDays,
   Plus
 } from "lucide-react";
+import festivalImage from "@/assets/festival-celebration.jpg";
 
 const CulturalCalendar = () => {
   const upcomingEvents = [
@@ -23,7 +24,8 @@ const CulturalCalendar = () => {
       participants: 2000,
       type: "Festival",
       description: "Tibetan New Year celebration with traditional dances, prayers, and feasts",
-      featured: true
+      featured: true,
+      image: festivalImage
     },
     {
       id: 2,
@@ -34,7 +36,8 @@ const CulturalCalendar = () => {
       participants: 1500,
       type: "Festival", 
       description: "Sacred water ceremony marking the end of winter",
-      featured: true
+      featured: true,
+      image: festivalImage
     },
     {
       id: 3,
@@ -45,7 +48,8 @@ const CulturalCalendar = () => {
       participants: 50,
       type: "Daily Ritual",
       description: "Join the monks for daily morning prayers and meditation",
-      featured: false
+      featured: false,
+      image: festivalImage
     }
   ];
 
@@ -105,10 +109,22 @@ const CulturalCalendar = () => {
 
                 <div className="space-y-6">
                   {upcomingEvents.map((event) => (
-                    <Card key={event.id} className={`shadow-[var(--shadow-elevation)] hover:shadow-[var(--shadow-monastery)] transition-shadow ${event.featured ? 'border-primary' : ''}`}>
-                      <CardContent className="p-6">
-                        <div className="flex items-start justify-between mb-4">
-                          <div className="flex-1">
+                    <Card key={event.id} className={`overflow-hidden shadow-[var(--shadow-elevation)] hover:shadow-[var(--shadow-monastery)] transition-shadow ${event.featured ? 'border-primary' : ''}`}>
+                      <div className="flex flex-col md:flex-row">
+                        {/* Event Image */}
+                        <div className="w-full md:w-48 h-32 md:h-auto relative">
+                          <img 
+                            src={event.image} 
+                            alt={event.title}
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-background/20" />
+                        </div>
+                        
+                        {/* Event Content */}
+                        <CardContent className="p-6 flex-1">
+                          <div className="flex items-start justify-between mb-4">
+                            <div className="flex-1">
                             <div className="flex items-center gap-2 mb-2">
                               <h3 className="text-xl font-semibold">{event.title}</h3>
                               {event.featured && (
@@ -156,7 +172,8 @@ const CulturalCalendar = () => {
                             Add to Calendar
                           </Button>
                         </div>
-                      </CardContent>
+                        </CardContent>
+                      </div>
                     </Card>
                   ))}
                 </div>

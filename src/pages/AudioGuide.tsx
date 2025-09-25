@@ -12,6 +12,7 @@ import {
   User,
   Pause
 } from "lucide-react";
+import audioGuideVisitorImage from "@/assets/audio-guide-visitor.jpg";
 
 const AudioGuide = () => {
   const audioGuides = [
@@ -98,11 +99,18 @@ const AudioGuide = () => {
                       <div className="flex items-start gap-4">
                         {/* Audio Player */}
                         <div className="flex-shrink-0">
-                          <div className="w-20 h-20 bg-[var(--gradient-hero)] rounded-lg flex items-center justify-center relative overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-br from-heritage-blue/20 to-primary/20" />
-                            <Button size="sm" className="rounded-full bg-background/20 hover:bg-background/30 text-foreground backdrop-blur-sm">
-                              <Play className="w-5 h-5" />
-                            </Button>
+                          <div className="w-20 h-20 rounded-lg relative overflow-hidden">
+                            <img 
+                              src={audioGuideVisitorImage} 
+                              alt="Audio Guide"
+                              className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <Button size="sm" className="rounded-full bg-background/20 hover:bg-background/30 text-foreground backdrop-blur-sm">
+                                <Play className="w-4 h-4" />
+                              </Button>
+                            </div>
                           </div>
                         </div>
 

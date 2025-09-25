@@ -3,6 +3,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Play, Star, Clock, Users, Globe } from "lucide-react";
+import virtualTourImage from "@/assets/virtual-tour-interior.jpg";
+import monasteryCourtyard from "@/assets/monastery-courtyard.jpg";
+import monasteryDetails from "@/assets/monastery-details.jpg";
 
 const VirtualTours = () => {
   const tours = [
@@ -14,7 +17,8 @@ const VirtualTours = () => {
       rating: 4.9,
       participants: 2500,
       languages: ["English", "Hindi", "Nepali"],
-      featured: true
+      featured: true,
+      image: virtualTourImage
     },
     {
       id: 2,
@@ -24,7 +28,8 @@ const VirtualTours = () => {
       rating: 4.8,
       participants: 1800,
       languages: ["English", "Tibetan", "Bhutia"],
-      featured: true
+      featured: true,
+      image: monasteryCourtyard
     },
     {
       id: 3,
@@ -34,7 +39,8 @@ const VirtualTours = () => {
       rating: 4.7,
       participants: 1200,
       languages: ["English", "Hindi"],
-      featured: false
+      featured: false,
+      image: monasteryDetails
     }
   ];
 
@@ -70,7 +76,13 @@ const VirtualTours = () => {
                     </div>
                   )}
                   
-                  <div className="aspect-video bg-[var(--gradient-hero)] relative">
+                  <div className="aspect-video relative overflow-hidden rounded-t-lg">
+                    <img 
+                      src={tour.image} 
+                      alt={tour.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <Button size="lg" className="rounded-full bg-background/20 hover:bg-background/30 text-foreground backdrop-blur-sm">
                         <Play className="w-6 h-6" />
